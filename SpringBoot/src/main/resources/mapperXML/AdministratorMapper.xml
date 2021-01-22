@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bisheflight.bisheflightmain.mapper.AdministratorMapper">
+    <select id="searchByAttributes" resultType="com.bisheflight.bisheflightmain.model.Administrator" statementType="STATEMENT">
+        SELECT * FROM administrator WHERE
+        <foreach collection="list" item="attribute" separator="and">
+            ${attribute.name} = ${attribute.value}
+        </foreach>
+    </select>
+</mapper>
